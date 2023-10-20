@@ -55,8 +55,10 @@ class MainActivity : ComponentActivity() {
                         // Halaman detail resep makanan
                         composable("recipe/{recipeName}") { backStackEntry ->
                             val recipeName = backStackEntry.arguments?.getString("recipeName")
+                            // Mencari resep berdasarkan nama
                             val recipe = recipeList.find { it: Recipe -> it.name == recipeName }
                             if (recipe != null) {
+                                // Menampilkan halaman detail resep
                                 RecipeDetail(recipe, onBack = { navController.popBackStack() })
                             }
                         }
@@ -67,6 +69,8 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+// Fungsi di bawah untuk menampilkan halaman utama aplikasi resep makanan
+// Fungsi ini menerima [navController] untuk mengatur navigasi antar halaman
 @Composable
 fun RecipeApp(navController: NavHostController) {
     // Mutable state untuk teks pencarian
@@ -152,6 +156,8 @@ fun RecipeApp(navController: NavHostController) {
     }
 }
 
+// Fungsi di bawah berfungsi untuk menampilkan elemen kartu pada daftar resep makanan
+// Fungsi ini menerima objek [recipe] dan ekspresi lambda [onItemClick] sebagai parameter
 @Composable
 fun RecipeItem(recipe: Recipe, onItemClick: () -> Unit) {
     var isExpanded by remember { mutableStateOf(false) }
@@ -195,6 +201,8 @@ fun RecipeItem(recipe: Recipe, onItemClick: () -> Unit) {
     }
 }
 
+// Fungsi di bawah untuk menampilkan halaman detail resep makanan
+// Fungsi ini menerima objek [recipe] yang akan ditampilkan dan ekspresi lambda [onBack] sebagai parameter
 @Composable
 fun RecipeDetail(recipe: Recipe, onBack: () -> Unit) {
     Card(

@@ -4,6 +4,7 @@ import com.ribonsipayung.foodrecipes.R
 import com.ribonsipayung.foodrecipes.model.Recipe
 
 object FoodRecipes {
+    // Objek FoodRecipes menyimpan daftar resep makanan
     val recipeList = listOf(
         Recipe("Rendang", "Rendang adalah masakan daging tradisional dari Indonesia.", R.drawable.rendang,
             listOf("Daging sapi", "Santan", "Bumbu rendang", "Serai", "Daun jeruk", "Lengkuas"),
